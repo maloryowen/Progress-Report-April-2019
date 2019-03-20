@@ -1,0 +1,42 @@
+---
+title: 'First Spring Progress Report: Pollination and frugivory of *Cactaceae* by Avian interactors'
+author: "Malory Owen & Christopher Lortie"
+date: "April 5, 2019"
+output: word_document
+---
+
+```{r libraries}
+library(ggplot2)
+library(knitr)
+```
+
+
+#Timeline
+
+Table 1: A timeline of research plans and progress.
+```{r Timeline}
+Timeline<-read.csv("~/Masters/April2019_Progress_Report/Progress-Report-April-2019/Timeline.csv")
+kable(Timeline)
+```
+
+
+#Background
+
+Positive interactions drive ecosystem infrastructure [cite]. A positive interaction is any association between multiple individuals where one or more of the interactors benefits, either in physical health or reproductive fitness (cite). These interactions are described by the Kingdom-level pathway they follow from benefactor to protegee (e.g. plant-plant, plant-animal, plant-animal-plant, etc.). But by analyzing more narrow taxanomic interactions in a variety of ecosystems, we are able to further understand the importance of positive interactions in ecosystem structure and dynamics.
+
+Mutualism, a more specific kind of interspecifc interaction, is when *both* parties involved benefit from interacting (cite). In mutualistic interaction, one species is usually recieving a resource input while providing a service to its co-interactor (cite). In harsh ecosystems (like deserts or islands), we see examples of "double mutualism". This is where each interactor exists in two distinct niches to provide two distinct services to an interspecific. For example, lizards are known pollinators and seed dispersers of a flower on an island (cite). Mutaulism and double mutualism are most commonly discussed when an animal is a benefactor species. 
+
+Facilitation, however, usually references positive interactions where a plant is the benefactor species (i.e. plant-plant or plant-animal interactions) (cite). Benefactor plant species increase germination, growth, or survivability of protegee species existing under its canopy (cite). In arid ecosystems, facilitation takes the form of benefactor species providing resources like water, shade, and pollinators (cite) or protection from trauma like herbivory, trampling, predation, and wind-damage (cite). Keystone benefactor species which facilitate many species in an ecosystem are known as foundational species (cite), and are dominant species in a ecosystem. Shrub species like *Larrea tridentata* and *Ephedra californica* have been documented as foundational species (cite). *Cylindropuntia acanthocarpa*, a many-branced columnar member of the *Cactaceae* family, may also be a foundational species in the Mojave Desert due to its morphology and dominance in the ecosystem. 
+
+Members of the *Cactaceae* family have been documented as both protegee species and benefactor species in deserts. As benefactor species, cacti provide protection, shade, and water to protegee species (cite), and are often dominant foundational species in unique ecosystems (cite).  *Carnegiea gigantea*, a keystone columnar cactus species found in the Sonoran Desert, was the subject of the first paper on facilitation, as a protegee species (cite). It is an obligate protegee in that its seeds must be deposited under a benefactor shrub's canopy in order to germinate (cite). This dual role as a benefactor and protegee at different life stages makes *Cactaceae* an interesting player in interaction ecology. 
+
+Before a plant can germinate, grow, and eventually facilitate other species, it must first be created (via reproduction) and then disperse from the mother plant as a seed or be cloned via propagation (cite). However, it is seed dispersal which allows a mother plant to expand its seed shadow over a larger landscape in a shorter period of time. Seed dispersal can rely on biotic or abiotic vectors, but endozoochorous seed dispersal (dispersal through the gut of an animal) is shown to increase germination rate, especially by birds (cite). 
+
+Birds are known nectarivores and frugivores of cacti (cite), thereby providing food resources for birds and pollination/seed dispersal for cacti. Should they occur within the same taxanomic groups in one habitat, these interactions may be described as double mutualism. However, nectarivores and frugivores do not forage randomly, but instead follow optimal foraging theory which suggests that foragers will continue to forage in one area until resources are depleated to levels below the average resource availability of the larger habitat (cite). This suggests that in a mutualistic foraging interaction, cacti will evolve to have more reproductive output and showier displays to draw in more nectarivores and frugivores (cite). However, allocation theory suggests that plants must make physiological trade offs due to their finite energy (cite). Therefore, plants which maximize reproductive output *and* size will be the most likely to encourage pollinator and frugivorous visitation. 
+
+Deserts habitats are declining due to the effects of climate change, fragmentation, and invasive species (cite) and all members of *Cactaceae* are regulated in some compacity under CITES (cite). Understanding how cacti come to be dominant species in an ecosystem may illuminate new avenues for utilizing biotic vectors in conservation and restoration applications. 
+
+The aim of this study is to determine the strength of this double mutualistic interaction between birds and a foundational species of cactus based on morphological characteristics of cactus individuals. We predict that medium-sized cacti will have the most reproductive output and showiest reproductive displays, and therefore the most pollinating and seed dispersing visitors. 
+
+
+
