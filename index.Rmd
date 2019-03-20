@@ -5,16 +5,17 @@ date: "April 5, 2019"
 output: word_document
 ---
 
-```{r libraries}
+```{r libraries, include=FALSE}
 library(ggplot2)
 library(knitr)
+library(PRISMAstatement)
 ```
 
 
 #Timeline
 
 Table 1: A timeline of research plans and progress.
-```{r Timeline}
+```{r Timeline, include = FALSE}
 Timeline<-read.csv("~/Masters/April2019_Progress_Report/Progress-Report-April-2019/Timeline.csv")
 kable(Timeline)
 ```
@@ -39,4 +40,56 @@ Deserts habitats are declining due to the effects of climate change, fragmentati
 The aim of this study is to determine the strength of this double mutualistic interaction between birds and a foundational species of cactus based on morphological characteristics of cactus individuals. We predict that medium-sized cacti will have the most reproductive output and showiest reproductive displays, and therefore the most pollinating and seed dispersing visitors. 
 
 
+#Chapter 1
+###A meta analysis of physical allocation in Cactaceae reproductive structures
 
+Purpose: Review literature on *Cactaceae* reproduction outputs, analyze reported values, and determine research gaps and future directions for agro-eco investigations. Produce editorial paper on current state of agro-eco *Cactaceae* research, as well as an additional meta analysis paper quantifying reported allocation trade offs of *Cactaceae*. 
+
+Research Questions: 
+
+Hypothesis:
+
+Methods:
+
+Figure 1: A PRISMA statment showing sample size of papers included in qualitative and quantitative datasets.
+```{r PRISMA, include=FALSE, warning=FALSE}
+PRISMA <- prisma(found=348,
+       found_other=0,
+       no_dupes=295,
+       screened=295,
+       screen_exclusions=262,
+       full_text=33,
+       full_text_exclusions=19,
+       qualitative=15,
+       quantitative=14)
+
+PRISMA
+
+```
+
+Preliminary Results:
+
+histogram of reproductive structures
+
+map
+
+
+#Chapter 2
+###Linking Avian double mutualistic interactions to successful Cactaceae seed dispersal and facilitation
+
+Purpose:
+
+Research Questions:
+
+Hypothesis:
+
+Predictions:
+
+Methods: 
+preliminary survey, experiment, joy sampling
+
+Preliminary Results:
+
+
+
+#Literature Cited
