@@ -1,14 +1,26 @@
 ---
-title: 'First Spring Progress Report: Pollination and frugivory of *Cactaceae* by Avian interactors'
+title: 'First Spring Progress Report: Pollination and frugivory of *Cactaceae* by
+  Avian interactors'
 author: "Malory Owen & Christopher Lortie"
 date: "April 5, 2019"
-output: word_document
+output:
+  word_document: 
+  html_document: default
+  pdf_document: 
+bibliography: report.bib
+always_allow_html: yes
 ---
 
-```{r libraries, include=FALSE}
+```{r libraries, warning=FALSE, include=FALSE}
 library(ggplot2)
 library(knitr)
+library(dplyr)
 library(PRISMAstatement)
+library(ggmap)
+library(gridExtra)
+library(tidyr)
+
+register_google(key="")
 ```
 
 
@@ -16,28 +28,25 @@ library(PRISMAstatement)
 
 Table 1: A timeline of research plans and progress.
 ```{r Timeline, include = FALSE}
-Timeline<-read.csv("~/Masters/April2019_Progress_Report/Progress-Report-April-2019/Timeline.csv")
-kable(Timeline)
+Timeline<-read.csv("~/Masters/Progress-Report-April-2019/Timeline.csv")
+time <- kable(Timeline)
+time
 ```
 
 
 #Background
 
-Positive interactions drive ecosystem infrastructure [cite]. A positive interaction is any association between multiple individuals where one or more of the interactors benefits, either in physical health or reproductive fitness (cite). These interactions are described by the Kingdom-level pathway they follow from benefactor to protegee (e.g. plant-plant, plant-animal, plant-animal-plant, etc.). But by analyzing more narrow taxanomic interactions in a variety of ecosystems, we are able to further understand the importance of positive interactions in ecosystem structure and dynamics.
+Positive interactions drive ecosystem infrastructure [@Callaway1997; @Gelmi-Candusso2017]. A positive interaction is any association between multiple individuals where one or more of the interactors benefits, either in physical health or reproductive fitness [@Bertness1994]. These interactions are described by the Kingdom-level pathway they follow from benefactor to protegee (e.g. plant-plant, plant-animal, plant-animal-plant, etc.). But by analyzing more narrow taxanomic interactions in a variety of ecosystems, we are able to further understand the importance of positive interactions in ecosystem structure and dynamics.
 
-Mutualism, a more specific kind of interspecifc interaction, is when *both* parties involved benefit from interacting (cite). In mutualistic interaction, one species is usually recieving a resource input while providing a service to its co-interactor (cite). In harsh ecosystems (like deserts or islands), we see examples of "double mutualism". This is where each interactor exists in two distinct niches to provide two distinct services to an interspecific. For example, lizards are known pollinators and seed dispersers of a flower on an island (cite). Mutaulism and double mutualism are most commonly discussed when an animal is a benefactor species. 
+Mutualism, a more specific kind of interspecifc interaction, is when *both* parties involved benefit from interacting [@Barker2017; @Bronstein2009; @Bronstein2001]. In harsh ecosystems (like deserts or islands), we see examples of "double mutualism", where each interactor exists in two distinct niches to provide two distinct services to an interspecific [@Ladley1996; @Kelley2004; @Garcia2012; @Gomes2014] Mutualism and double mutualism are most commonly discussed when an animal is a benefactor species. 
 
-Facilitation, however, usually references positive interactions where a plant is the benefactor species (i.e. plant-plant or plant-animal interactions) (cite). Benefactor plant species increase germination, growth, or survivability of protegee species existing under its canopy (cite). In arid ecosystems, facilitation takes the form of benefactor species providing resources like water, shade, and pollinators (cite) or protection from trauma like herbivory, trampling, predation, and wind-damage (cite). Keystone benefactor species which facilitate many species in an ecosystem are known as foundational species (cite), and are dominant species in a ecosystem. Shrub species like *Larrea tridentata* and *Ephedra californica* have been documented as foundational species (cite). *Cylindropuntia acanthocarpa*, a many-branced columnar member of the *Cactaceae* family, may also be a foundational species in the Mojave Desert due to its morphology and dominance in the ecosystem. 
+Facilitation, however, usually references positive interactions where a plant is the benefactor species (i.e. plant-plant or plant-animal interactions) [@Maestre2009]. Benefactor plant species increase germination, growth, and recruitment of protegee species existing under its canopy [@Franco2009]. In arid ecosystems, facilitation takes the form of benefactor species providing resources like water, shade, and pollinators [@Flores-Torres2017; @Miranda-Jacome2013; @Mitchell2009] or protection from trauma by herbivory, trampling, freezing temperatures, predation, and wind [@Gomez-Aparicio2008; @Parker1989; @Tewksbury2001; @Nobel1980]. Keystone benefactor species which facilitate many species in an ecosystem are known as foundational species [@Angelini2011; @Almeida2018], and are dominant species in a ecosystem. Shrub species have been documented as the most common foundational species [@Filazzola2014] globally. *Cylindropuntia acanthocarpa*, a many-branced columnar member of the *Cactaceae* family found as a dominant species in the Mojave Desert, shares a morphological similarity with foundational shrubs, and likely is a keystone foundational species itself. Members of the *Cactaceae* family have been documented as both protegee species and benefactor species in deserts. *Carnegiea gigantea*, a keystone columnar cactus species found in the Sonoran Desert, was the subject of the classic paper on facilitation, as a protegee species [@Turner1966]. It is an obligate protegee in that its seeds must be deposited under a benefactor shrub's canopy in order to germinate [@Drezner2003; @Drezner2010]. This dual role as a benefactor and protegee at different life stages makes *Cactaceae* an interesting player in interaction ecology. 
 
-Members of the *Cactaceae* family have been documented as both protegee species and benefactor species in deserts. As benefactor species, cacti provide protection, shade, and water to protegee species (cite), and are often dominant foundational species in unique ecosystems (cite).  *Carnegiea gigantea*, a keystone columnar cactus species found in the Sonoran Desert, was the subject of the first paper on facilitation, as a protegee species (cite). It is an obligate protegee in that its seeds must be deposited under a benefactor shrub's canopy in order to germinate (cite). This dual role as a benefactor and protegee at different life stages makes *Cactaceae* an interesting player in interaction ecology. 
+Before a plant can germinate, grow, and eventually facilitate other species, it must first be created (via reproduction) and then disperse from the mother plant as a seed or be cloned via propagation [@Nathan2000]. However, it is seed dispersal which allows a mother plant to expand its seed shadow over a larger landscape in a shorter period of time [@Willson1993]. Seed dispersal can rely on biotic or abiotic vectors, but endozoochorous seed dispersal (dispersal through the gut of an animal) is shown to increase germination rate, especially by birds [@Verdu2004; @Traveset2001; @Traveset2002]. 
 
-Before a plant can germinate, grow, and eventually facilitate other species, it must first be created (via reproduction) and then disperse from the mother plant as a seed or be cloned via propagation (cite). However, it is seed dispersal which allows a mother plant to expand its seed shadow over a larger landscape in a shorter period of time. Seed dispersal can rely on biotic or abiotic vectors, but endozoochorous seed dispersal (dispersal through the gut of an animal) is shown to increase germination rate, especially by birds (cite). 
+Birds are known nectarivores and frugivores of cacti [@Montiel2000; @Gorostiague2016], thereby providing food resources for birds and pollination/seed dispersal for cacti. Should they occur within the same taxanomic groups in one habitat, these interactions may be described as double mutualism. However, nectarivores and frugivores do not forage randomly, but instead follow optimal foraging theory which suggests that foragers will continue to forage in one area until resources are depleated to levels below the average resource availability of the larger habitat. This value resource density is known as the Giving Up Density, or GUD, which exists based on predictions made in ecosystems with patchy resource available (Marginal Value Theorem) [@Charnov1976]. This suggests that in a mutualistic foraging interaction, cacti will evolve to have more reproductive output and showier displays to draw in more nectarivores [@Wolf1990; @Mitchell1994]. However, allocation theory suggests that plants must make physiological trade offs due to their finite energy to anatomical traits that best increase their relative fitness [@Obeso2004]. Therefore, plants which maximize reproductive output *and* size will be the most likely to encourage pollinator and frugivorous visitation. 
 
-Birds are known nectarivores and frugivores of cacti (cite), thereby providing food resources for birds and pollination/seed dispersal for cacti. Should they occur within the same taxanomic groups in one habitat, these interactions may be described as double mutualism. However, nectarivores and frugivores do not forage randomly, but instead follow optimal foraging theory which suggests that foragers will continue to forage in one area until resources are depleated to levels below the average resource availability of the larger habitat (cite). This suggests that in a mutualistic foraging interaction, cacti will evolve to have more reproductive output and showier displays to draw in more nectarivores and frugivores (cite). However, allocation theory suggests that plants must make physiological trade offs due to their finite energy (cite). Therefore, plants which maximize reproductive output *and* size will be the most likely to encourage pollinator and frugivorous visitation. 
-
-Deserts habitats are declining due to the effects of climate change, fragmentation, and invasive species (cite) and all members of *Cactaceae* are regulated in some compacity under CITES (cite). Understanding how cacti come to be dominant species in an ecosystem may illuminate new avenues for utilizing biotic vectors in conservation and restoration applications. 
-
-The aim of this study is to determine the strength of this double mutualistic interaction between birds and a foundational species of cactus based on morphological characteristics of cactus individuals. We predict that medium-sized cacti will have the most reproductive output and showiest reproductive displays, and therefore the most pollinating and seed dispersing visitors. 
+Deserts habitats are declining due to the effects of climate change, fragmentation, and invasive species [@Nielsen2015; @Pfahl2017; @Singh2013; @Smith2011; @Gutzwiller2003; @Hernandez2014; @Rodriguez-Estrella2007] and the family *Cactaceae* is protected under CITES Appendix II, with many species protected under Appendix I [@CITES2017]. Understanding how cacti come to be dominant species in an ecosystem may illuminate new avenues for utilizing biotic vectors in conservation and restoration applications. 
 
 
 #Chapter 1
@@ -45,14 +54,13 @@ The aim of this study is to determine the strength of this double mutualistic in
 
 Purpose: Review literature on *Cactaceae* reproduction outputs, analyze reported values, and determine research gaps and future directions for agro-eco investigations. Produce editorial paper on current state of agro-eco *Cactaceae* research, as well as an additional meta analysis paper quantifying reported allocation trade offs of *Cactaceae*. 
 
-Research Questions: 
+Research Questions: Are reproductive outputs in *Cactaceae* (flowers, fruits, and seeds) correlated? How does *Cactaceae* phylogenetic distance related to reproductive output? Where are *Cactaceae* reproductive studies relative to *Cactaceae* locations? What research gaps exist in *Cactaceae* allocation research, and what opportuniteis for argo-eco interdisciplinary work have been unexplored? 
 
-Hypothesis:
+Hypothesis: Flower production will be greater than, but correlated to fruit production. However, fruit production will be negatively correlated with seed production. Abundance of fruit or seeds will also be negatively correlated with mass of fruit or seeds, respectively. 
 
-Methods:
+Methods: A systematic review using search terms (Table 2) was performed in Web of Science. Screening for a qualitative synthesis versus screening for a quantitative analysis led to one additional study for the qualitative. Since only 14 studies have been identified, the search will be expanded to include "flower*" as a search term, and allow for papers published more than five years ago. A PRISMA statement shows the current exclusion for all studies (Figure 1). Data will be analyzed using the R Package "metafor" with generlized linear mixed models. 
 
-Figure 1: A PRISMA statment showing sample size of papers included in qualitative and quantitative datasets.
-```{r PRISMA, include=FALSE, warning=FALSE}
+```{r PRISMA, echo=FALSE, warning=FALSE}
 PRISMA <- prisma(found=348,
        found_other=0,
        no_dupes=295,
@@ -66,30 +74,236 @@ PRISMA <- prisma(found=348,
 PRISMA
 
 ```
+Figure 1: A PRISMA statment showing sample size of papers included in qualitative and quantitative datasets.
+
+```{r Search Term Hits, echo=FALSE, warning=FALSE}
+search <- read.csv("~/Masters/Progress-Report-April-2019/search.terms.csv")
+
+searchterm <- kable(search)
+
+```
+
+Table 2: The number of studies returned for each combination of search terms in Web of Science. 
+
 
 Preliminary Results:
 
-histogram of reproductive structures
+This study has changed from its original construct which relied on reports of correlation coefficients between reproductive structures measured in the study. Because only one paper reported this value, we adapted by creating two datasets: one for qualitative analysis that includes any measurement of a reproductive structure, and a second which compares reproductive structures under treatment against controls. These datasets will likely be processed into two papers. One will be an "insight" style paper which describes the current state and research gaps of *Cactaceae* reproductive studies, and refines opportunties for agro-eco interdisciplinary work. The second will be a formal meta analysis correlating different reproductive structures, investigating allocation theory in *Cactaceae*.
 
-map
+Based on the data extracted at this point in time, fruit is the most frequently reported reproductive structure (Figure 2). While flowers are the most infrequently reported at this time, an inclusion of "flower*" in a new search will drastically increase this count. 
 
+*Cactaceae* are only native to the Western Hemisphere, excluding one species in Africa [@Sanchez2010]. However, members of the family can be found globally thanks to nonnative introductions and agriculture. Of the current studies, most data points are reported in studies occuring in the Western Hemisphere, where they are native (Figure 3). Most reported values and studies occur in field experiments, and field experiments are more likely to report more values per study (Figure 4).
+
+
+```{r Histogram of reproductive structures, warning=FALSE, echo=FALSE}
+cactus <- read.csv("~/Masters/Progress-Report-April-2019/data.2.csv")
+
+allcactus <- read.csv("~/Masters/Progress-Report-April-2019/cactaceae_gbif_latlon.csv")
+
+histo <- ggplot(cactus, aes(reproductive.structure)) + geom_histogram(stat="count") + labs(x="Reproductive Structure Reported", y="Number of Studies") + theme_minimal()
+histo
+```
+
+Figure 2: Studies most frequently reported fruit, followed by seed, followed by flower. 
+
+
+```{r map of studies, warning=FALSE, echo=FALSE, fig.height=10}
+
+cactlat <- cactus$lat
+cactlon <- cactus$lon
+country <- cactus$country
+
+allcactlat <- allcactus$lat
+allcactlon <- allcactus$lon
+genus <- allcactus$genus
+
+mp1 <- NULL #create blank world map object
+mapWorld <- borders("world", colour="#FFF3DF", fill="#FFF3DF") # create a layer of borders
+mp1 <- ggplot() +   mapWorld
+
+#Layer on locations of records
+mp1 <- mp1 + 
+  geom_point(aes(x=cactlat, y=cactlon, color=country), size=4, alpha=1/10) +
+  labs(colours = "#514E4E", title = "A", x="Latitude", y="Longitude") + 
+  theme(panel.grid.major = element_line("#E2E8EA"),
+        panel.grid.minor = element_line("#E2E8EA"),
+        panel.background = element_rect(fill="white"),
+        legend.position = "bottom",
+        legend.background = element_rect(fill = "white", color = NA),
+        legend.key = element_rect(color = "#FFF3DF", fill = "#FFF3DF"),
+        legend.title = element_text(color = "#514E4E"),
+        legend.text = element_text(color = "#514E4E"))
+
+
+mp2 <- NULL #create blank world map
+mapWorld <- borders("world", colour="#FFF3DF", fill="#FFF3DF") # create a layer of borders
+mp2 <- ggplot() +   mapWorld
+
+#Create a map of all cacti occurrences reported in gbif.
+mp2 <- mp2 + 
+  geom_point(aes(x=allcactlon, y=allcactlat), color="#ACDF8F", size=1, alpha=1/10) +
+  labs(colours = "#514E4E", title = "B", x="Latitude", y="Longitude") + 
+  theme(panel.grid.major = element_line("#E2E8EA"),
+        panel.grid.minor = element_line("#E2E8EA"),
+        panel.background = element_rect(fill="white")
+        )
+
+
+maps <- grid.arrange(mp1, mp2, ncol = 1) #combine two maps into one frame
+
+
+
+```
+
+Figure 3: Studies on cactus reproduction are more prevalent and report more values in the Western Hemisphere (Figure 3A). Cacti are found globally, but all occurences in the Eastern Hemisphere are either agricultural or introduced populations (Figure 3B).
+
+
+```{r study location, warning = FALSE, echo=FALSE}
+histolocal <- ggplot(cactus, aes(location)) + geom_histogram(stat="count") + labs(title= "A", x="Location of Study", y="Number of Reported Values") + theme_minimal()
+ #create locations for all records
+
+localbystudy <- aggregate(id ~ location, cactus, function(x) length(unique(x)))
+ #create locations for individual studies, not just number of reported values
+
+histolocalbystudy <- ggplot(localbystudy, aes(location, id)) + 
+  geom_bar(stat="identity") + 
+  labs(title = "B", x="Location of Study", y="Number of Studies") + theme_minimal()
+
+
+hist <- grid.arrange(histolocal, histolocalbystudy, nrow = 1) #combine two plots into one
+
+```
+
+Figure 4: More studies take place in the field than in an agricultural plot (Figure 4A), and field studies tend to report more reproductive structure metrics (Figure 4B). 
 
 #Chapter 2
 ###Linking Avian double mutualistic interactions to successful Cactaceae seed dispersal and facilitation
 
-Purpose:
+Purpose: The aim of this study is to determine the strength of this double mutualistic interaction between birds and a foundational species of cactus based on morphological characteristics of cactus individuals. 
 
-Research Questions:
+Research Questions: Are reproductive structures of cacti correlated with each other or with *Cylindropuntia acanthocarpa* volume? What Avian communities are associated with *C. acanthocarpa*? How strong are Avian-*C. acanthocarpa* double mutualistic interactions?  
 
-Hypothesis:
+Hypothesis: *C. acanthocarpa* individuals that maximize size *and* reproductive output via allocational trade offs will have the showiest reproductive displays, and therefore the most pollinating and seed dispersing Avian visitors. 
 
 Predictions:
+* Flower and fruit production will be positively correlated, but cactus volume and reproductive output will be negatively correlated. 
+* Avian visitation rates and diversity are dependent on cactus morphological characteristics.
+* Avian diversity at a *C. acanthocarpa* indivdiual is different than avian diversity at the entire site. 
 
 Methods: 
-preliminary survey, experiment, joy sampling
+
+Preliminary Cactus Survey
+Prior to the flowering and fruiting experiments, we performed a transect sampling survey of *Cylindropuntia acanthocarpa*, *Cylindropuntia echinocarpa*, and a haphazard sampling of *Opuntia basilaris* to determine an appropriate study species. We measured the major, minor, and vertical axis of the nearest neighbor cactus every five meters, with distance between transects being five (*C. acanthocarpa*) or ten (*C. echinocarpa*) meters. Beause *C. acanthocarpa* was so dense, we were able to sample 105 individuals (n=105) over 5 transects. However, *C. echinocarpa* was less dense and therefore required 9 transects to be sampled (n=98). *O. basilaris* was so infrequent that a haphazard search for any individuals was the most effective way to measure the cacti (n=26). We also rated the health of each individual considering the overall percentage of plant death, rot, and scarification. Using this data, we determined that *C. acanthocarpa* is the most appropriate study species. 
+
+Experimental Manipulations
+Pending the exploratory week, we will return in April/May during the flowering season to observe pollinating birds interactions with 105 cactus individuals (7 replications per characteristic combination). The cacti will have different levels of manipulated "showiness" (0%, 25%, 50%, 75%, 100% percent of flowers) of the 3 size classes. We will snip X% of flowers off the cactus, but also record the number of nonblooming buds on each individual when performing observations, as not all flowers of a cactus bloom concurrently.
+
+While the flowering season for our study cacti is in May, the cactus individual itself only blooms for 1-2 days throughout the season. We will primarily rely on focal observations aided by a 150-600mm lens equipped to a digital camera. We will do 1-hour observations in mornings and evenings at each combination of variables 7 times (105 hours of observations). To avoid impacting bird visitation, we will be at least 10m from the cactus individual and remain still. We will record each bird individual's species and behavior (using an ethogram). Should there be more than one individual present, we will record the visiting species, but continue behavior observation for the first arrival birds (for up to 10 minutes, although this time limit is unlikely to be surpassed considering bird movement). Once the focal bird has left the cactus of interest, we will note the location it arrived at after leaving the cactus of interest.
+
+We will also leave out omnidirectional microphones to record bird calls, which will give us an estimate of brid diversity site wide. Sound recorders have been shown to be as reliable a measurement of bird presence compared to walking point transects, and are more time and cost effective [@Darras2018]. To identify bird calls, we will classify the calls by ear, and then use a audio software program, like Sound Analysis Pro 2011 to identify the many hours of audio data [@Grieves2014; @Grieves2015]. 
+
+Next, in August, we will begin the fruiting observation and experiment--it will be nearly identical to the flowering experiment, but with some added components. Each combination of variables (species, size, and fruit percent) will again have 7 replicates, meaning 105 cacti will be a part of the study. We will remove 0%, 25%, 50%, 75%, and 100% of fruits from small, medium, and large cacti. We will immediately place each cactus's fruit in a sealed zip lock bag to prevent desiccation while in the field. Post collection, we will weigh fresh and dried fruits, and sieve the seeds for weighing and counting. For the fruting season, all focal observation protocols will be identical to the flowering season's, but replacing flowers for fruit. 
+
+Joy Sampling Methodology
+In addition to our manipulated experiments, we will also perform joy sampling protocols, which differ in that no cacti will be altered. First, we will perform 50 hours worth of area searches (2 hours per session), recording any and all bird locations, behaviors, and mesohabitats (shrub, cactus, open, etc.) Conversely, we will perform 50 hours worth of point counts at individual cacti. This protocol is easily replicable at other sites with different collaborators.
 
 Preliminary Results:
 
+```{r data, warning=FALSE, include=FALSE}
+baseline <- read.csv("~/Masters/Progress-Report-April-2019/baseline_cactus_size_all.csv")
+
+
+```
+
+Abundance, size, and health are three factors under consideration when choosing a study species. *C. acanthocarpa* was dominant, *C. echinocarpa* was second most common, and *O. basilaris* was infrequent (Figure 5). Based on our proposed methods, a total of 210 distinct individuals will be manipulated for observation, as well as an additional 100 for point count observations, and 20 for flower-fruit paired observations (n=360), so an abundant species is necessary. 
+
+```{r Map, warning=FALSE, echo=FALSE}
+cali <- get_map(location = c(lon = -115.662, lat = 34.7825), zoom = 17, color="bw")
+
+sunset <- ggmap(cali)
+sunset <- sunset + 
+  geom_point(data=baseline, aes(x=cactus_lon, y=cactus_lat, colour=species, group=species), alpha = 3/10, size = 4) + 
+  labs(title = "A", x = "longitude", y = "latitude", color = "Species")
+
+
+cali2 <- get_map(location = c(lon = -115.663, lat = 34.7825), zoom = 19, color="bw")
+
+sunset2 <- ggmap(cali2)
+sunset2 <- sunset2 + 
+  geom_point(data=baseline, aes(x=cactus_lon, y=cactus_lat, colour=species, group=species), alpha = 3/10, size = 4) + 
+  labs(title = "B", x = "longitude", y = "latitude", color = "Species")
+
+
+
+baselinemaps <- grid.arrange(sunset, sunset2, ncol=1, nrow=2)
+
+```
+
+Figure 5: *C. acanthocarpa* is the most abundant cactus species, *C. echinocarpa* is the second most common, and *O. basilaris* is infrequent. Figure 5a shows all cacti measured, figure 5b zooms in on *C. acanthocarpa* area. 
+
+In addition to abundance, we need to know if the sizes are variable enough to split into three size classes (small, medium, and large). While we do have a total volume available, height of cacti is a better metric to consider if nectarivorous and frugivorous birds will engage with a cactus, as they prefer to engage with higher inflorescences and fruits [@Wolf1990; @Mitchell1994]. Sampled *O. basilaris* size was normally distributed (*Shapiro Wilks*, p = 0.008519, W = 0.88797), but *C. acanthocarpa* (*Shapiro Wilks*, p = 0.06667, W = 0.97717) and *C. echinocarpa* (*Shapiro Wilks*, p = 0.349,  W = 0.98532) were not. A Kruskall Wallis rank sum test revealed that each cactus had non-identical means (*Kruskal-Wallis*, Chi-square = 3.71, p > 0.0001, df = 52), with a mean height in meters of 1.04 meters for *C. acanthocarpa*, 0.55 meters for *C. echinocarpa*, and 0.17 meters for *O. basilaris* (Figure 6). Additionally, the selected study species must have enough variety in heights so as to be binned into three size class (small, medium, large). Based on the distributions of sizes of each cactus, a equal-sized binned class system is most appropriate. *C. acanthocarpa* has the largest bin classes, which is a benefit in that having large size classes translates to a clearer distinction amoung flower/fruit height for birds. 
+
+```{r Size stats, warning=FALSE, include=FALSE}
+summary(baseline$species) #n of each ssp
+
+tapply(baseline$z, baseline$species, mean) #means of each ssp 
+
+kruskal.test(species ~ z, data = baseline) #significant differences
+```
+
+
+```{r Size Boxplot, warning=FALSE, echo=FALSE}
+boxplot1 <- ggplot(baseline, aes(x = species, y=z)) +
+  geom_boxplot() + labs(title = "Size of Cacti", x = "Species", y = "Height in meters") +
+  theme_minimal() #no outliers, plot size of cacti by ssp
+
+boxplot1
+```
+
+Figure 6: Each cactus species had significantly different mean heights (*Kruskal-Wallis*, Chi-square = 3.71, p > 0.0001, df = 52). 
+
+
+```{r Size Class Determination, warning = FALSE, echo=FALSE}
+
+#Determine equal-sized size classes for cacti based on height (z)
+minmax <- data.frame(
+aggregate(z~species, data=baseline, min),
+aggregate(z~species, data=baseline, max)) #create dataframe with min and max
+
+bins <- mutate(minmax, range = z.1-z)
+bins <- mutate(bins, bins = range/3) #divide by 3 (because 3 size classes wanted, small medium and large) to get differences between size classes
+
+size_class_options <- mutate(bins, small = z) %>% 
+  mutate(bins, medium = z + bins) %>% 
+  mutate(bins, large = z.1 - bins) #create our size classes, each column represents the minimum value to start each size class. 
+
+
+#Make it pretty
+#create vectors
+species <- c("Cylindropuntia acanthocarpa", "Cylindropuntia enchinocarpa", "Opuntia basilaris")
+small <- c("<85cm", "<45cm", "<15cm")
+medium <- c("86cm - 152cm", "46cm - 72cm", "16cm - 22cm")
+large <- c(">153cm", ">73cm", ">23cm")
+#create dataframe for easy viewing
+size_class <- data.frame(species, small, medium, large)
+kable(size_class)
+
+```
+
+Table 3: Size classes for each study species candidate. *C. acanthocarpa* has the largest bin sizes. 
+
+Overall health is another important factor to consider when exploring potential study species, as health can determine an individual's likelihood to flower and fruit. *C. acanthocarpa* and *C. echinocarpa* are left skewed, with most individuals having health ratings of "4" or "5", whereas *O. basilaris* has an even distribution of health classes amoung all individuals (Figure 7). 
+
+```{r Health boxplot, warning=FALSE, echo=FALSE}
+ggplot(baseline, aes(x = health_index)) +
+  geom_histogram(bins = 15) + labs(x = "Number of individuals in each health class by species", y = "Health class") +
+  facet_grid(~species) +
+  theme_minimal()
+```
+
+Figure 7: The *Cylindropuntia* species tend to have more individuals with "4" or "5" health index ratings, whereas the *O. basilaris* individuals are evenly distributed along the health index scale. 
+
+Considering the abundance, the density, the health, and size class options, *O. basilaris* is not a realistic contender as a study species. It may be overlooked by birds, not bloom/fruit due to health, and is in short supply. Both of *Cylindropuntias* are healthy. *C. echinocarpa*, however, is still less dominant than *C. acanthocarpa*, is smaller overall, and doesn't have the width of size classes that *C. acanthocarpa* does. While these traits do not mean the *C. echinocarpa* could not be viable study species, I propose that focusing more deeply on *C. acanthocarpa* and deepening the methods of observation will be more beneficial to answering my study questions than a comparitive study between cacti species would.
 
 
 #Literature Cited
