@@ -4,10 +4,10 @@ title: 'First Spring Progress Report: Pollination and frugivory of *Cactaceae* b
 author: "Malory Owen & Christopher Lortie"
 date: "April 5, 2019"
 output:
-  word_document: 
   html_document: default
+  word_document: 
   pdf_document: 
-bibliography: report.bib
+bibliography: references.bib
 always_allow_html: yes
 ---
 
@@ -20,7 +20,7 @@ library(ggmap)
 library(gridExtra)
 library(tidyr)
 
-register_google(key="")
+register_google(key="AIzaSyDr2QtkqFJOs6KQZ68B3WTL6nrEBVWoQ8A")
 ```
 
 
@@ -38,15 +38,15 @@ time
 
 Positive interactions drive ecosystem infrastructure [@Callaway1997; @Gelmi-Candusso2017]. A positive interaction is any association between multiple individuals where one or more of the interactors benefits, either in physical health or reproductive fitness [@Bertness1994]. These interactions are described by the Kingdom-level pathway they follow from benefactor to protegee (e.g. plant-plant, plant-animal, plant-animal-plant, etc.). By analyzing more narrow taxonomic interactions in a variety of ecosystems, we are able to further understand the importance of positive interactions in ecosystem structure and dynamics.
 
-Mutualism, a more specific kind of interspecifc interaction, is when *both* parties involved benefit from interacting [@Barker2017; @Bronstein2009; @Bronstein2001]. In harsh ecosystems (like deserts or islands), we see examples of "double mutualism", where each interactor exists in two distinct niches to provide two distinct services to an interspecific [@Ladley1996; @Kelley2004; @Garcia2012; @Gomes2014]. Mutualism and double mutualism are most commonly discussed when an animal is an interacting species. 
+Mutualism, a more specific kind of interspecifc interaction, is when *both* parties involved benefit from interacting [@Barker2017; @Bronstein2009; @Bronstein2001]. In harsh ecosystems (like deserts or islands), we see examples of "double mutualism", where each interactor exists in two distinct niches to provide two distinct services to an interspecific [@Ladley1996; @Kelly2004; @Garcia2012; @Gomes2014]. Mutualism and double mutualism are most commonly discussed when an animal is an interacting species. 
 
-Facilitation, however, usually references positive interactions where a plant is the benefactor species (i.e. plant-plant or plant-animal interactions) [@Maestre2009]. Benefactor plant species increase germination, growth, and recruitment of protegee species existing under its canopy [@Franco2009]. In arid ecosystems, facilitation takes the form of benefactor species providing resources like water, shade, and pollinators [@Flores-Torres2017; @Miranda-Jacome2013; @Mitchell2009], or protection from trauma by herbivory, trampling, freezing temperatures, predation, and wind [@Gomez-Aparicio2008; @Parker1989; @Tewksbury2001; @Nobel1980]. Keystone benefactor species which facilitate many species in an ecosystem are known as foundational species [@Angelini2011; @Almeida2018], and are dominant species in a ecosystem. Shrub species have been documented as the most common foundational species globally [@Filazzola2014]. *Cylindropuntia acanthocarpa*, a many-branched columnar member of the *Cactaceae* family is found as a dominant species in the Mojave Desert. It is morphologically similar to foundational shrubs, and likely is a keystone foundational species itself. Members of the *Cactaceae* family have been documented as both protegee species and benefactor species in deserts. *Carnegiea gigantea*, a keystone columnar cactus species found in the Sonoran Desert, was the subject of the classic paper on facilitation, as a protegee species [@Turner1966]. It is an obligate protegee in that its seeds must be deposited under a benefactor shrub's canopy in order to germinate [@Drezner2003; @Drezner2010]. This dual role as a benefactor and protegee at different life stages makes *Cactaceae* an interesting player in interaction ecology. 
+Facilitation, however, usually references positive interactions where a plant is the benefactor species (i.e. plant-plant or plant-animal interactions) [@Maestre2009]. Benefactor plant species increase germination, growth, and recruitment of protegee species existing under its canopy [@Franco2009]. In arid ecosystems, facilitation takes the form of benefactor species providing resources like water, shade, and pollinators [@FloresTorres2017; @MirandaJacome2013; @Mitchell2009], or protection from trauma by herbivory, trampling, freezing temperatures, predation, and wind [@GomezAparicio2008; @Parker1989; @Tewksbury2001; @Nobel1980]. Keystone benefactor species which facilitate many species in an ecosystem are known as foundational species [@Angelini2011; @Almeida2018], and are dominant species in a ecosystem. Shrub species have been documented as the most common foundational species globally [@Filazzola2017]. *Cylindropuntia acanthocarpa*, a many-branched columnar member of the *Cactaceae* family is found as a dominant species in the Mojave Desert. It is morphologically similar to foundational shrubs, and likely is a keystone foundational species itself. Members of the *Cactaceae* family have been documented as both protegee species and benefactor species in deserts. *Carnegiea gigantea*, a keystone columnar cactus species found in the Sonoran Desert, was the subject of the classic paper on facilitation, as a protegee species [@Turner1966]. It is an obligate protegee in that its seeds must be deposited under a benefactor shrub's canopy in order to germinate [@Drezner2003; @Drezner2010]. This dual role as a benefactor and protegee at different life stages makes *Cactaceae* an interesting player in interaction ecology. 
 
 Before a plant can germinate, grow, and eventually facilitate other species, it must first be created (via sexual reproduction) and then disperse from the mother plant as a seed [@Nathan2000]. While clonal reproduction is common in *Cylindropuntia* species, it is seed dispersal which allows a mother plant to expand its seed shadow over a larger landscape in a shorter period of time [@Willson1993]. Seed dispersal can rely on biotic or abiotic vectors, but endozoochorous seed dispersal (dispersal through the gut of an animal) is shown to increase germination rate, especially by birds [@Verdu2004; @Traveset2001; @Traveset2002]. 
 
 Birds are known nectarivores and frugivores of cacti [@Montiel2000; @Gorostiague2016], and this interaction provides food resources for birds and pollination/seed dispersal for cacti. Should they occur within the same taxonomic groups in one habitat, these interactions may be described as double mutualism. However, nectarivores and frugivores do not forage randomly, but instead follow optimal foraging theory which suggests that foragers will continue to forage in one area until resources are depleted to levels below the average resource availability of the larger habitat. This value resource density is known as the Giving Up Density, or GUD, which exists based on predictions made in ecosystems with patchy resource available (Marginal Value Theorem) [@Charnov1976]. This suggests that in a mutualistic foraging interaction, cacti will evolve to have more reproductive output and showier displays to draw in more nectarivores [@Wolf1990; @Mitchell1994]. However, allocation theory suggests that plants must make physiological trade offs due to their finite energy to anatomical traits that best increase their relative fitness [@Obeso2004]. Therefore, plants which maximize reproductive output *and* size will be the most likely to encourage pollinator and frugivorous visitation. 
 
-Deserts habitats are declining due to the effects of climate change, fragmentation, and invasive species [@Nielsen2015; @Pfahl2017; @Singh2013; @Smith2011; @Gutzwiller2003; @Hernandez2014; @Rodriguez-Estrella2007] and the family *Cactaceae* is protected under CITES Appendix II, with many species protected under Appendix I [@CITES2017]. Understanding how cacti come to be dominant species in an ecosystem may illuminate new avenues for utilizing biotic vectors in conservation and restoration applications. 
+Deserts habitats are declining due to the effects of climate change, fragmentation, and invasive species [@Nielsen2015; @Pfahl2017; @Singh2013; @Smith2011; @Gutzwiller2003; @Hernandez2014; @RodriguezEstrella2007] and the family *Cactaceae* is protected under CITES Appendix II, with many species protected under Appendix I [@CITES2017]. Understanding how cacti come to be dominant species in an ecosystem may illuminate new avenues for utilizing biotic vectors in conservation and restoration applications. 
 
 
 #Chapter 1
@@ -122,10 +122,7 @@ mapWorld <- borders("world", colour="#FFF3DF", fill="#FFF3DF") # create a layer 
 mp1 <- ggplot() +   mapWorld
 
 #Layer on locations of records
-mp1 <- mp1 + 
-  geom_point(aes(x=cactlat, y=cactlon, color=country), size=4, alpha=1/10) +
-  labs(colours = "#514E4E", title = "A", x="Latitude", y="Longitude") + 
-  theme(panel.grid.major = element_line("#E2E8EA"),
+mp1 <- mp1 + geom_point(aes(x=cactlat, y=cactlon, color=country), size=4, alpha=1/10) + labs(colours = "#514E4E", title = "A", x="Latitude", y="Longitude") + theme(panel.grid.major = element_line("#E2E8EA"),
         panel.grid.minor = element_line("#E2E8EA"),
         panel.background = element_rect(fill="white"),
         legend.position = "bottom",
@@ -133,6 +130,7 @@ mp1 <- mp1 +
         legend.key = element_rect(color = "#FFF3DF", fill = "#FFF3DF"),
         legend.title = element_text(color = "#514E4E"),
         legend.text = element_text(color = "#514E4E"))
+mp1
 
 
 mp2 <- NULL #create blank world map
@@ -141,14 +139,19 @@ mp2 <- ggplot() +   mapWorld
 
 #Create a map of all cacti occurrences reported in gbif.
 mp2 <- mp2 + 
-  geom_point(aes(x=allcactlon, y=allcactlat), color="#ACDF8F", size=1, alpha=1/10) +
+  geom_point(aes(x=allcactlon, y=allcactlat, color=Cactaceae), color="#ACDF8F", size=1, alpha=1/10) +
   labs(colours = "#514E4E", title = "B", x="Latitude", y="Longitude") + 
   theme(panel.grid.major = element_line("#E2E8EA"),
         panel.grid.minor = element_line("#E2E8EA"),
-        panel.background = element_rect(fill="white")
+        panel.background = element_rect(fill="white"),
+        legend.position = "bottom",
+        legend.background = element_rect(fill = "white", color = NA),
+        legend.key = element_rect(color = "#FFF3DF", fill = "#FFF3DF"),
+        legend.title = element_text(color = "#514E4E"),
+        legend.text = element_text(color = "#514E4E")
         )
 
-
+mp2
 maps <- grid.arrange(mp1, mp2, ncol = 1) #combine two maps into one frame
 
 
@@ -296,7 +299,7 @@ Overall health is another important factor to consider when exploring potential 
 
 ```{r Health boxplot, warning=FALSE, echo=FALSE}
 ggplot(baseline, aes(x = health_index)) +
-  geom_histogram(bins = 15) + labs(x = "Number of individuals in each health class by species", y = "Health class") +
+  geom_histogram(bins = 15) + labs(x = "Heath Class", y = "Number of individuals in each health class by species") +
   facet_grid(~species) +
   theme_minimal()
 ```
