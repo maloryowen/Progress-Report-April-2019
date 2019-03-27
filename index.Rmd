@@ -1,6 +1,5 @@
 ---
-title: 'First Spring Progress Report: Pollination and frugivory of *Cactaceae* by
-  Avian interactors'
+title: 'Double Mutualistic Trophic Facilitation Cascades between Cactaceae and Birds'
 author: "Malory Owen & Christopher Lortie"
 date: "April 5, 2019"
 output:
@@ -20,7 +19,7 @@ library(ggmap)
 library(gridExtra)
 library(tidyr)
 
-register_google(key="AIzaSyDr2QtkqFJOs6KQZ68B3WTL6nrEBVWoQ8A")
+register_google(key="")
 ```
 
 
@@ -58,7 +57,7 @@ Research Questions: Are reproductive outputs in *Cactaceae* (flowers, fruits, an
 
 Hypothesis: Flower production will be greater than, but correlated to fruit production. However, fruit production will be negatively correlated with seed production. Abundance of fruit or seeds will also be negatively correlated with mass of fruit or seeds, respectively. 
 
-Methods: A systematic review using search terms (Table 2) was performed in Web of Science. Screening for a qualitative synthesis versus screening for a quantitative analysis led to one additional study for the qualitative. Since only 14 studies have been identified, the search will be expanded to include "flower*" as a search term, and allow for papers published more than five years ago. A PRISMA statement shows the current exclusion for all studies (Figure 1). Data will be analyzed using the R Package "metafor" with generalized linear mixed models. 
+Methods: A systematic review using search terms (Table 2) was performed in Web of Science. Screening for a qualitative synthesis versus screening for a quantitative analysis led to one additional study for the qualitative. Since only 14 studies have been identified, the search will be expanded to include "flower*" as a search term, and allow for papers published more than five years ago. A PRISMA statement shows the current exclusion for all studies (Figure 1). Data will be analyzed using the R Package "metafor" with generalized linear mixed models [@Viechtbauer2017]. 
 
 ```{r PRISMA, echo=FALSE, warning=FALSE}
 PRISMA <- prisma(found=348,
