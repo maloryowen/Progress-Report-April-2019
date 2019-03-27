@@ -4,8 +4,8 @@ title: 'First Spring Progress Report: Pollination and frugivory of *Cactaceae* b
 author: "Malory Owen & Christopher Lortie"
 date: "April 5, 2019"
 output:
-  html_document: default
   word_document: 
+  html_document: default
   pdf_document: 
 bibliography: references.bib
 always_allow_html: yes
@@ -40,7 +40,7 @@ Positive interactions drive ecosystem infrastructure [@Callaway1997; @Gelmi-Cand
 
 Mutualism, a more specific kind of interspecifc interaction, is when *both* parties involved benefit from interacting [@Barker2017; @Bronstein2009; @Bronstein2001]. In harsh ecosystems (like deserts or islands), we see examples of "double mutualism", where each interactor exists in two distinct niches to provide two distinct services to an interspecific [@Ladley1996; @Kelly2004; @Garcia2012; @Gomes2014]. Mutualism and double mutualism are most commonly discussed when an animal is an interacting species. 
 
-Facilitation, however, usually references positive interactions where a plant is the benefactor species (i.e. plant-plant or plant-animal interactions) [@Maestre2009]. Benefactor plant species increase germination, growth, and recruitment of protegee species existing under its canopy [@Franco2009]. In arid ecosystems, facilitation takes the form of benefactor species providing resources like water, shade, and pollinators [@FloresTorres2017; @MirandaJacome2013; @Mitchell2009], or protection from trauma by herbivory, trampling, freezing temperatures, predation, and wind [@GomezAparicio2008; @Parker1989; @Tewksbury2001; @Nobel1980]. Keystone benefactor species which facilitate many species in an ecosystem are known as foundational species [@Angelini2011; @Almeida2018], and are dominant species in a ecosystem. Shrub species have been documented as the most common foundational species globally [@Filazzola2017]. *Cylindropuntia acanthocarpa*, a many-branched columnar member of the *Cactaceae* family is found as a dominant species in the Mojave Desert. It is morphologically similar to foundational shrubs, and likely is a keystone foundational species itself. Members of the *Cactaceae* family have been documented as both protegee species and benefactor species in deserts. *Carnegiea gigantea*, a keystone columnar cactus species found in the Sonoran Desert, was the subject of the classic paper on facilitation, as a protegee species [@Turner1966]. It is an obligate protegee in that its seeds must be deposited under a benefactor shrub's canopy in order to germinate [@Drezner2003; @Drezner2010]. This dual role as a benefactor and protegee at different life stages makes *Cactaceae* an interesting player in interaction ecology. 
+Facilitation, however, usually references positive interactions where a plant is the benefactor species (i.e. plant-plant or plant-animal interactions) [@Maestre2009]. Benefactor plant species increase germination, growth, and recruitment of protegee species existing under its canopy [@Franco2009]. In arid ecosystems, facilitation takes the form of benefactor species providing resources like water, shade, and pollinators [@FloresTorres2017; @MirandaJacome2013; @Mitchell2009], or protection from trauma by herbivory, trampling, freezing temperatures, predation, and wind [@GomezAparicio2008; @Parker1989; @Tewksbury2001; @Nobel1980]. Keystone benefactor species which facilitate many species in an ecosystem are known as foundational species [@Angelini2011; @Almeida2018], and are dominant species in a ecosystem. Shrub species have been documented as the most common foundational species globally [@Filazzola2014]. *Cylindropuntia acanthocarpa*, a many-branched columnar member of the *Cactaceae* family is found as a dominant species in the Mojave Desert. It is morphologically similar to foundational shrubs, and likely is a keystone foundational species itself. Members of the *Cactaceae* family have been documented as both protegee species and benefactor species in deserts. *Carnegiea gigantea*, a keystone columnar cactus species found in the Sonoran Desert, was the subject of the classic paper on facilitation, as a protegee species [@Turner1966]. It is an obligate protegee in that its seeds must be deposited under a benefactor shrub's canopy in order to germinate [@Drezner2003; @Drezner2010]. This dual role as a benefactor and protegee at different life stages makes *Cactaceae* an interesting player in interaction ecology. 
 
 Before a plant can germinate, grow, and eventually facilitate other species, it must first be created (via sexual reproduction) and then disperse from the mother plant as a seed [@Nathan2000]. While clonal reproduction is common in *Cylindropuntia* species, it is seed dispersal which allows a mother plant to expand its seed shadow over a larger landscape in a shorter period of time [@Willson1993]. Seed dispersal can rely on biotic or abiotic vectors, but endozoochorous seed dispersal (dispersal through the gut of an animal) is shown to increase germination rate, especially by birds [@Verdu2004; @Traveset2001; @Traveset2002]. 
 
@@ -299,7 +299,7 @@ Overall health is another important factor to consider when exploring potential 
 
 ```{r Health boxplot, warning=FALSE, echo=FALSE}
 ggplot(baseline, aes(x = health_index)) +
-  geom_histogram(bins = 15) + labs(x = "Heath Class", y = "Number of individuals in each health class by species") +
+  geom_histogram(bins = 15) + labs(x = "Health Class", y = "Number of individuals in each health class by species") +
   facet_grid(~species) +
   theme_minimal()
 ```
