@@ -296,11 +296,12 @@ Table 3: Size classes for each study species candidate. *C. acanthocarpa* has th
 
 Overall health is another important factor to consider when exploring potential study species, as health can determine an individual's likelihood to flower and fruit. *C. acanthocarpa* and *C. echinocarpa* are left skewed, with most individuals having health ratings of "4" or "5", whereas *O. basilaris* has an even distribution of health classes among all individuals (Figure 7). 
 
-```{r Health boxplot, warning=FALSE, echo=FALSE}
+```{r Health histogram, warning=FALSE, echo=FALSE}
 ggplot(baseline, aes(x = health_index)) +
   geom_histogram(bins = 15) + labs(x = "Health Class", y = "Number of individuals in each health class by species") +
   facet_grid(~species) +
   theme_minimal()
+
 ```
 
 Figure 7: The *Cylindropuntia* species tend to have more individuals with "4" or "5" health index ratings, whereas the *O. basilaris* individuals are evenly distributed along the health index scale. 
